@@ -5,10 +5,51 @@
  */
 package ec.edu.ups.controlador;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  *
  * @author srcti
  */
 public class ConexionBD {
+    private Connection conexion= null;
+    private String login = "ControlAutomatizado";
+    private String pasword = "controlautomatizado";
+    private String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+    
+    
+    public ConexionBD (){
+        
+    }
+    public void Conectar() {
+        try {
+
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            conexion = DriverManager.getConnection(url, login, pasword);
+            conexion.setAutoCommit(false);
+        } catch (ClassNotFoundException | SQLException e) {
+            
+        }
+    }
+    public void Desconectar() {
+        try {
+            conexion.close();
+            
+        } catch (SQLException ex) {
+
+        }
+    } 
+
+    public Connection getConexion() {
+        return conexion;
+    }
+
+    public void setConexion(Connection conexion) {
+        this.conexion = conexion;
+    }
+    
+    
     
 }

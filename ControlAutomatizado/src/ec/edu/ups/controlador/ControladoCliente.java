@@ -5,10 +5,25 @@
  */
 package ec.edu.ups.controlador;
 
+import ec.edu.ups.modelo.Cliente;
+
 /**
  *
  * @author srcti
  */
 public class ControladoCliente {
     
+    public  void  createCliente(Cliente c, int n){ 
+        
+        
+    }
+    
+    public  void  actualizarCliente(int codigo){ 
+    }
+    
+    public  void  eliminar(Cliente c){ 
+    }
+    
+    public  void  listar(Cliente c){ 
+    }
 }

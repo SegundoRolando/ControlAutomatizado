@@ -11,15 +11,15 @@ package ec.edu.ups.modelo;
  */
 public class Producto {
     
-     private int codigo;
+    private int codigo;
     private String nombre;
     private String descripcion;
     private double precioVenta;
     private double precioCompra;
     private int cantidad;
     private double iva;
+    private String empresa;
     private int codigoCategoria;
-    private int codigoMedida;
     
     
 }
