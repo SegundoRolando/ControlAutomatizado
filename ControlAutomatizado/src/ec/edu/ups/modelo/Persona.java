@@ -14,21 +14,26 @@ public class Persona {
     private int codigo;
     private String nombre;
     private String apellido;
-    private String direccion;
     private String cedula;
+    private String direccion;
     private String telefono;
     private String email;
-    private String genero;
+    private char genero;
+    private char estado;
 
-    public Persona(int codigo, String nombre, String apellido, String direccion, String cedula, String telefono, String email, String genero) {
+    public Persona() {
+    }
+
+    public Persona(int codigo, String nombre, String apellido, String cedula, String direccion, String telefono, String email, char genero, char estado) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.direccion = direccion;
         this.cedula = cedula;
+        this.direccion = direccion;
         this.telefono = telefono;
         this.email = email;
         this.genero = genero;
+        this.estado = estado;
     }
 
     public int getCodigo() {
@@ -55,20 +60,20 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
     public String getCedula() {
         return cedula;
     }
 
     public void setCedula(String cedula) {
         this.cedula = cedula;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getTelefono() {
@@ -87,17 +92,26 @@ public class Persona {
         this.email = email;
     }
 
-    public String getGenero() {
+    public char getGenero() {
         return genero;
     }
 
-    public void setGenero(String genero) {
+    public void setGenero(char genero) {
         this.genero = genero;
+    }
+
+    public char getEstado() {
+        return estado;
+    }
+
+    public void setEstado(char estado) {
+        this.estado = estado;
     }
 
     @Override
     public String toString() {
-        return "Persona{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion + ", cedula=" + cedula + ", telefono=" + telefono + ", email=" + email + ", genero=" + genero + '}';
+        return "Persona{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + ", genero=" + genero + ", estado=" + estado + '}';
     }
+
     
 }

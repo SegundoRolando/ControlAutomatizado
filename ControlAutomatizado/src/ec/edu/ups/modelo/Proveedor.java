@@ -12,11 +12,14 @@ package ec.edu.ups.modelo;
 public class Proveedor extends Persona {
     private String empresa; //nombre del negocio o de la emmpresa -Tienda Mega
 
-    public Proveedor(String empresa, int codigo, String nombre, String apellido, String direccion, String cedula, String telefono, String email, String genero) {
-        super(codigo, nombre, apellido, direccion, cedula, telefono, email, genero);
+    public Proveedor() {
+    }
+
+    public Proveedor(String empresa, int codigo, String nombre, String apellido, String cedula, String direccion, String telefono, String email, char genero, char estado) {
+        super(codigo, nombre, apellido, cedula, direccion, telefono, email, genero, estado);
         this.empresa = empresa;
     }
-    
+
     public String getEmpresa() {
         return empresa;
     }
@@ -30,5 +33,6 @@ public class Proveedor extends Persona {
         return "Proveedor{" + "empresa=" + empresa + '}';
     }
 
+ 
     
 }

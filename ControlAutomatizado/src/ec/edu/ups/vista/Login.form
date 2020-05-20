@@ -29,7 +29,7 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-                      <Component id="txtusuario" min="-2" pref="177" max="-2" attributes="0"/>
+                      <Component id="txtUsuario" min="-2" pref="177" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -37,10 +37,10 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
                               <Component id="btn" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="btncancelar" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="txtcontraseña" min="-2" pref="177" max="-2" attributes="0"/>
+                          <Component id="txtContrasenia" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -53,13 +53,13 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="264" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="txtusuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" max="32767" attributes="0"/>
-                  <Component id="txtcontraseña" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtContrasenia" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -82,9 +82,7 @@
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtusuario">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtcontrase&#xf1;a">
+    <Component class="javax.swing.JTextField" name="txtUsuario">
     </Component>
     <Component class="javax.swing.JButton" name="btn">
       <Properties>
@@ -98,6 +96,8 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cancelar"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtContrasenia">
     </Component>
   </SubComponents>
 </Form>

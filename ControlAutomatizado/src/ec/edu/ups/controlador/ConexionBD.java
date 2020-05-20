@@ -17,7 +17,7 @@ public class ConexionBD {
     private Connection conexion= null;
     private String login = "ControlAutomatizado";
     private String pasword = "controlautomatizado";
-    private String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+    private String url = "jdbc:oracle:thin:@localhost:1521:xe";
     
     
     public ConexionBD (){
@@ -29,6 +29,13 @@ public class ConexionBD {
             Class.forName("oracle.jdbc.driver.OracleDriver");
             conexion = DriverManager.getConnection(url, login, pasword);
             conexion.setAutoCommit(false);
+            if (conexion!=null){
+                System.out.println("Conexion exitosa");
+            }else {
+                System.out.println("Conexio Fallida");
+            }
+            
+            
         } catch (ClassNotFoundException | SQLException e) {
             
         }
@@ -36,6 +43,7 @@ public class ConexionBD {
     public void Desconectar() {
         try {
             conexion.close();
+            System.out.println("Conexion desconectada");
             
         } catch (SQLException ex) {
 
@@ -49,7 +57,6 @@ public class ConexionBD {
     public void setConexion(Connection conexion) {
         this.conexion = conexion;
     }
-    
     
     
 }

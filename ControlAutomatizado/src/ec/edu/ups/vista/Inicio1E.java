@@ -5,18 +5,20 @@
  */
 package ec.edu.ups.vista;
 
+
 /**
  *
  * @author srcti
  */
-public class Inicio extends javax.swing.JFrame {
-
+public class Inicio1E extends javax.swing.JFrame {
     /**
      * Creates new form Inicio
      */
-    public Inicio() {
+    public Inicio1E() {
         initComponents();
     }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -37,20 +39,13 @@ public class Inicio extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
         desktopPane = new javax.swing.JDesktopPane();
         menuBar = new javax.swing.JMenuBar();
-        fileMenu = new javax.swing.JMenu();
-        saveAsMenuItem = new javax.swing.JMenuItem();
         editMenu = new javax.swing.JMenu();
         cutMenuItem = new javax.swing.JMenuItem();
-        helpMenu = new javax.swing.JMenu();
-        contentMenuItem = new javax.swing.JMenuItem();
         helpMenu1 = new javax.swing.JMenu();
         contentMenuItem1 = new javax.swing.JMenuItem();
         editMenu1 = new javax.swing.JMenu();
         cutMenuItem1 = new javax.swing.JMenuItem();
         copyMenuItem1 = new javax.swing.JMenuItem();
-        editMenu2 = new javax.swing.JMenu();
-        cutMenuItem2 = new javax.swing.JMenuItem();
-        copyMenuItem2 = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -70,20 +65,6 @@ public class Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        fileMenu.setMnemonic('f');
-        fileMenu.setText("Administrador");
-
-        saveAsMenuItem.setMnemonic('a');
-        saveAsMenuItem.setText("Mis datos");
-        saveAsMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveAsMenuItemActionPerformed(evt);
-            }
-        });
-        fileMenu.add(saveAsMenuItem);
-
-        menuBar.add(fileMenu);
-
         editMenu.setMnemonic('e');
         editMenu.setText("Cliente");
 
@@ -97,20 +78,6 @@ public class Inicio extends javax.swing.JFrame {
         editMenu.add(cutMenuItem);
 
         menuBar.add(editMenu);
-
-        helpMenu.setMnemonic('h');
-        helpMenu.setText("Proveedor");
-
-        contentMenuItem.setMnemonic('c');
-        contentMenuItem.setText("Inicio");
-        contentMenuItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contentMenuItemActionPerformed(evt);
-            }
-        });
-        helpMenu.add(contentMenuItem);
-
-        menuBar.add(helpMenu);
 
         helpMenu1.setMnemonic('h');
         helpMenu1.setText("Productos");
@@ -131,26 +98,23 @@ public class Inicio extends javax.swing.JFrame {
 
         cutMenuItem1.setMnemonic('t');
         cutMenuItem1.setText("Facturar");
+        cutMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutMenuItem1ActionPerformed(evt);
+            }
+        });
         editMenu1.add(cutMenuItem1);
 
         copyMenuItem1.setMnemonic('y');
-        copyMenuItem1.setText("LIstar Facturacion");
+        copyMenuItem1.setText("Listar Facturacion");
+        copyMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                copyMenuItem1ActionPerformed(evt);
+            }
+        });
         editMenu1.add(copyMenuItem1);
 
         menuBar.add(editMenu1);
-
-        editMenu2.setMnemonic('e');
-        editMenu2.setText("Configuracion");
-
-        cutMenuItem2.setMnemonic('t');
-        cutMenuItem2.setText("Licencias ");
-        editMenu2.add(cutMenuItem2);
-
-        copyMenuItem2.setMnemonic('y');
-        copyMenuItem2.setText("Permisos");
-        editMenu2.add(copyMenuItem2);
-
-        menuBar.add(editMenu2);
 
         setJMenuBar(menuBar);
 
@@ -168,14 +132,6 @@ public class Inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
-        // TODO add your handling code here:
-        Administrador administrador= new Administrador();
-        desktopPane.add(administrador);
-       administrador.show();
-        
-    }//GEN-LAST:event_saveAsMenuItemActionPerformed
-
     private void cutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItemActionPerformed
         // TODO add your handling code here:
         Cliente cliente =new Cliente();
@@ -183,19 +139,23 @@ public class Inicio extends javax.swing.JFrame {
         cliente.show();
     }//GEN-LAST:event_cutMenuItemActionPerformed
 
-    private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
-        // TODO add your handling code here:
-        Proveedor proveedor= new Proveedor();
-        desktopPane.add(proveedor);
-        proveedor.show();
-    }//GEN-LAST:event_contentMenuItemActionPerformed
-
     private void contentMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItem1ActionPerformed
         // TODO add your handling code here:
         Producto producto=new Producto();
         desktopPane.add(producto);
         producto.show();
     }//GEN-LAST:event_contentMenuItem1ActionPerformed
+
+    private void cutMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        Facturacion facturacion=new Facturacion();
+        desktopPane.add(facturacion);
+        facturacion.show();    
+    }//GEN-LAST:event_cutMenuItem1ActionPerformed
+
+    private void copyMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_copyMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -214,38 +174,33 @@ public class Inicio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inicio1E.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inicio1E.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inicio1E.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Inicio1E.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicio().setVisible(true);
+                new Inicio1E().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem contentMenuItem1;
     private javax.swing.JMenuItem copyMenuItem1;
-    private javax.swing.JMenuItem copyMenuItem2;
     private javax.swing.JMenuItem cutMenuItem;
     private javax.swing.JMenuItem cutMenuItem1;
-    private javax.swing.JMenuItem cutMenuItem2;
     private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JMenu editMenu;
     private javax.swing.JMenu editMenu1;
-    private javax.swing.JMenu editMenu2;
-    private javax.swing.JMenu fileMenu;
-    private javax.swing.JMenu helpMenu;
     private javax.swing.JMenu helpMenu1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -256,7 +211,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem saveAsMenuItem;
     // End of variables declaration//GEN-END:variables
 
 }
