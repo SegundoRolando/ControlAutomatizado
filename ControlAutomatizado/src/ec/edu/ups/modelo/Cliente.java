@@ -14,14 +14,5 @@ public class Cliente extends Persona{
     public Cliente() {
     }
 
-    public Cliente(int codigo, String nombre, String apellido, String cedula, String direccion, String telefono, String email, char genero, char estado) {
-        super(codigo, nombre, apellido, cedula, direccion, telefono, email, genero, estado);
-    }
-
-    @Override
-    public String toString() {
-        return "Cliente{" + '}';
-    }
-     
     
 }

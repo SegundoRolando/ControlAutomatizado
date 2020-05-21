@@ -5,6 +5,9 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.vista.Facturacion;
+import ec.edu.ups.vista.Cliente;
+
 
 /**
  *

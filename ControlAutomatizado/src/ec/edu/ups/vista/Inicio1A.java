@@ -5,19 +5,40 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.vista.Facturacion;
+import ec.edu.ups.vista.Categoria;
+import ec.edu.ups.controlador.ConexionBD;
+import ec.edu.ups.controlador.ControladorCargo;
+import ec.edu.ups.controlador.ControladorEmpleado;
+import static java.awt.Frame.MAXIMIZED_BOTH;
+
+
 
 /**
  *
  * @author srcti
  */
 public class Inicio1A extends javax.swing.JFrame {
-
+    private VentanaEmpleado ventanaEmpleado;
+    private VentanaCargo ventanaCargo;
+    private ControladorEmpleado controladorEmpleado;
+    private ControladorCargo controladorCargo;
     /**
      * Creates new form Inicio
      */
-    public Inicio1A() {
+    private int empleado;
+    private int n;
+    
+    public Inicio1A(int n,int empleado) {
         initComponents();
+        controladorCargo = new ControladorCargo();
+        controladorEmpleado = new ControladorEmpleado();
+        this.empleado=empleado;
+        this.n=n;
+        this.setExtendedState(MAXIMIZED_BOTH);
     }
+
+    
 
    
 
@@ -75,7 +96,7 @@ public class Inicio1A extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         fileMenu.setMnemonic('f');
-        fileMenu.setText("Empreados");
+        fileMenu.setText("Empleados");
 
         saveAsMenuItem.setMnemonic('a');
         saveAsMenuItem.setText("Cargo");
@@ -207,7 +228,11 @@ public class Inicio1A extends javax.swing.JFrame {
 
     private void saveAsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItemActionPerformed
         // TODO add your handling code here:
-   
+        desktopPane.removeAll();
+        desktopPane.repaint();
+        ventanaCargo = new VentanaCargo(controladorCargo);
+        desktopPane.add(ventanaCargo);
+        ventanaCargo.show();
         
     }//GEN-LAST:event_saveAsMenuItemActionPerformed
 
@@ -257,6 +282,12 @@ public class Inicio1A extends javax.swing.JFrame {
 
     private void saveAsMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItem1ActionPerformed
         // TODO add your handling code here:
+         desktopPane.removeAll();
+        desktopPane.repaint();
+        ventanaEmpleado = new VentanaEmpleado(controladorEmpleado,new ControladorCargo());
+        ventanaEmpleado.setVisible(true);
+        desktopPane.add(ventanaEmpleado);
+        ventanaEmpleado.show();
     }//GEN-LAST:event_saveAsMenuItem1ActionPerformed
 
     private void saveAsMenuItem1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_saveAsMenuItem1KeyPressed
@@ -266,38 +297,7 @@ public class Inicio1A extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inicio1A.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inicio1A.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inicio1A.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inicio1A.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Inicio1A().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem contentMenuItem;

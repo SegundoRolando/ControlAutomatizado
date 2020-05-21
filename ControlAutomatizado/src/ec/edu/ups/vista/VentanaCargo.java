@@ -5,6 +5,10 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.controlador.ControladorCargo;
+import ec.edu.ups.modelo.Cargo;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author srcti
@@ -14,9 +18,14 @@ public class VentanaCargo extends javax.swing.JInternalFrame {
     /**
      * Creates new form VentanaCargo
      */
-    public VentanaCargo() {
+    private ControladorCargo controladorCargo;
+    private int codigo;
+    public VentanaCargo(ControladorCargo controlador) {
         initComponents();
+        this.controladorCargo = controlador;
     }
+
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,19 +38,18 @@ public class VentanaCargo extends javax.swing.JInternalFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtcargo = new javax.swing.JTextField();
+        txtnombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtdato = new javax.swing.JTextField();
+        txtcodigo = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         txtdat = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        btnBuscar = new javax.swing.JButton();
-        btncrear = new javax.swing.JButton();
-        txtActualizar = new javax.swing.JButton();
-        txtCancelar = new javax.swing.JButton();
-        txtSalir = new javax.swing.JButton();
+        btnGuardar = new javax.swing.JButton();
+        btnNuevo = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblcargos = new javax.swing.JTable();
@@ -53,7 +61,7 @@ public class VentanaCargo extends javax.swing.JInternalFrame {
 
         jLabel2.setText("Codigo");
 
-        txtdato.setEditable(false);
+        txtcodigo.setEditable(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -65,11 +73,11 @@ public class VentanaCargo extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(txtdato, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
-                        .addComponent(txtcargo, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(61, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -78,11 +86,11 @@ public class VentanaCargo extends javax.swing.JInternalFrame {
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtcargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtnombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtdato, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
@@ -100,6 +108,12 @@ public class VentanaCargo extends javax.swing.JInternalFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel3.setText("Ingrese el Dato");
+
+        txtdat.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtdatKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -124,15 +138,28 @@ public class VentanaCargo extends javax.swing.JInternalFrame {
 
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
 
-        btnBuscar.setText("Buscar");
+        btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
 
-        btncrear.setText("Crear");
+        btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
 
-        txtActualizar.setText("Actualizar");
+        btnCancelar.setText("Eliminar");
 
-        txtCancelar.setText("Cancelar");
-
-        txtSalir.setText("Salir");
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -141,27 +168,24 @@ public class VentanaCargo extends javax.swing.JInternalFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btncrear, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE)
+                    .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(5, 5, 5)
-                .addComponent(btncrear)
+                .addComponent(btnNuevo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnBuscar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtActualizar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtCancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSalir)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addComponent(btnGuardar)
+                .addGap(18, 18, 18)
+                .addComponent(btnCancelar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSalir)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -174,6 +198,11 @@ public class VentanaCargo extends javax.swing.JInternalFrame {
                 "Código", "Nombre"
             }
         ));
+        tblcargos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblcargosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tblcargos);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -242,10 +271,43 @@ public class VentanaCargo extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        // TODO add your handling code here:
+        txtnombre.setText("");
+        txtdat.setText("");
+    }//GEN-LAST:event_btnNuevoActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+         controladorCargo.crear(txtnombre.getText());
+         
+        btnNuevoActionPerformed(evt);
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void txtdatKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdatKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode()==10){
+            Actualizar();
+        }
+    }//GEN-LAST:event_txtdatKeyPressed
+
+    private void tblcargosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcargosMouseClicked
+        // TODO add your handling code here:
+        int seleccion =tblcargos.getSelectedRow();
+        txtnombre.setText(String.valueOf(tblcargos.getValueAt(seleccion, 1)));
+    }//GEN-LAST:event_tblcargosMouseClicked
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBuscar;
-    private javax.swing.JButton btncrear;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnNuevo;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -257,11 +319,19 @@ public class VentanaCargo extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblcargos;
-    private javax.swing.JButton txtActualizar;
-    private javax.swing.JButton txtCancelar;
-    private javax.swing.JButton txtSalir;
-    private javax.swing.JTextField txtcargo;
+    private javax.swing.JTextField txtcodigo;
     private javax.swing.JTextField txtdat;
-    private javax.swing.JTextField txtdato;
+    private javax.swing.JTextField txtnombre;
     // End of variables declaration//GEN-END:variables
+public void Actualizar(){
+        Cargo c=controladorCargo.Buscar(txtdat.getText());
+            DefaultTableModel modelo=(DefaultTableModel) tblcargos.getModel();
+            modelo.setRowCount(0);
+           
+            Object[] dato={
+                c.getId(),
+                c.getNombre()
+            };
+            modelo.addRow(dato);
+    }
 }

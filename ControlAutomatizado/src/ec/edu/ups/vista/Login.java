@@ -5,13 +5,24 @@
  */
 package ec.edu.ups.vista;
 
+import ec.edu.ups.vista.Inicio1A;
+import ec.edu.ups.controlador.ControladorLogin;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author srcti
  */
 public class Login extends javax.swing.JFrame {
 
-   
+    private ControladorLogin cl;
+    public Login() {
+        initComponents();
+        this.cl=new ControladorLogin();
+        //txtContrasenia.setText("rolando1");
+        //txtUsuario.setText("srctirado@gmail.com");
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -88,7 +99,23 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActionPerformed
-    
+     String User=txtUsuario.getText();
+        String Pasword=txtContrasenia.getText();
+        
+        int Cargo=cl.inicioSesion(User,Pasword);
+        int empleado=cl.codigoEmpleado(User, Pasword);
+        System.out.println(Cargo);
+        if(Cargo==0){
+            JOptionPane.showMessageDialog(this, "Usuario y Contraseña incorrecto");
+            txtUsuario.setText("");
+            txtContrasenia.setText("");
+           
+            
+        }else{
+          
+            new Inicio1A(Cargo,empleado).setVisible(true);
+            this.dispose();
+        }
     
     }//GEN-LAST:event_btnActionPerformed
 

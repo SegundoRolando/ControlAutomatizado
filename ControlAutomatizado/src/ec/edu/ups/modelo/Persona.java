@@ -11,21 +11,21 @@ package ec.edu.ups.modelo;
  */
 public class Persona {
     
-    private int codigo;
+    private int id;
     private String nombre;
     private String apellido;
     private String cedula;
     private String direccion;
     private String telefono;
     private String email;
-    private char genero;
-    private char estado;
+    private String genero;
+    private String estado;
 
     public Persona() {
     }
 
-    public Persona(int codigo, String nombre, String apellido, String cedula, String direccion, String telefono, String email, char genero, char estado) {
-        this.codigo = codigo;
+    public Persona(int id, String nombre, String apellido, String cedula, String direccion, String telefono, String email, String genero, String estado) {
+        this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
@@ -36,12 +36,12 @@ public class Persona {
         this.estado = estado;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getId() {
+        return id;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setId(int codigo) {
+        this.id = codigo;
     }
 
     public String getNombre() {
@@ -92,26 +92,27 @@ public class Persona {
         this.email = email;
     }
 
-    public char getGenero() {
+    public String getGenero() {
         return genero;
     }
 
-    public void setGenero(char genero) {
+    public void setGenero(String genero) {
         this.genero = genero;
     }
 
-    public char getEstado() {
+    public String getEstado() {
         return estado;
     }
 
-    public void setEstado(char estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
     @Override
     public String toString() {
-        return "Persona{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + ", genero=" + genero + ", estado=" + estado + '}';
+        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + ", genero=" + genero + ", estado=" + estado + '}';
     }
+
 
     
 }
