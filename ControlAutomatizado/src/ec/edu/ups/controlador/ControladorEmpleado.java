@@ -28,7 +28,7 @@ public class ControladorEmpleado {
         
         
         PreparedStatement pst = null;
-        String sql = "INSERT INTO CON_EMPLEADOS(EMP_ID, EMP_NOMBRE,EMP_APELLIDO,EMP_CEDULA,EMP_DIRECCION,EMP_TELEFONO,EMP_EMAIL,EMP_GENERO,EMP_ESTADO,EMP_CONTRASENIA,CARGOS_CAR_CODIGO) "
+        String sql = "INSERT INTO CON_EMPLEADOS(EMP_ID, EMP_NOMBRE,EMP_APELLIDO,EMP_CEDULA,EMP_DIRECCION,EMP_TELEFONO,EMP_EMAIL,EMP_GENERO,EMP_ESTADO,EMP_CONTRASENIA,CARGOS_CAR_ID) "
                 +"VALUES (CON_EMPLEADOS_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?)";
         try {
             conexion.Conectar();
