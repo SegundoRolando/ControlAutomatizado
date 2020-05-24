@@ -1,5 +1,6 @@
 package ec.edu.ups.controlador;
 
+import ec.edu.ups.controlador.ConexionBD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -19,7 +20,7 @@ public class ControladorLogin {
         
         try {
             
-            String sql="SELECT EMP_NOMBRE,CARGOS_CAR_ID FROM CON_EMPLEADOS WHERE EMP_EMAIL='"+user+"' AND EMP_CONTRASENIA='"+pasword+"'";
+            String sql="SELECT EMP_NOMBRE,CARGO_CODIGO FROM CON_EMPLEADOS WHERE EMP_EMAIL='"+user+"' AND EMP_CONTRASENIA='"+pasword+"'";
             conexion.Conectar();
             Statement sta=conexion.getConexion().createStatement();
             ResultSet res=sta.executeQuery(sql);

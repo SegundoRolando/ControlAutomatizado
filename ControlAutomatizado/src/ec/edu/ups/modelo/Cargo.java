@@ -10,24 +10,18 @@ package ec.edu.ups.modelo;
  * @author  srcti
  */
 public class Cargo {
-    private int id;
+    private int codigo;
     private String nombre;
 
     public Cargo() {
     }
 
-    public Cargo(int id, String nombre) {
-        this.id = id;
-        this.nombre = nombre;
-    }
-    
-
-    public int getId() {
-        return id;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -40,8 +34,9 @@ public class Cargo {
 
     @Override
     public String toString() {
-        return "Cargo{" + "id=" + id + ", nombre=" + nombre + '}';
+        return "Cargo{" + "codigo=" + codigo + ", nombre=" + nombre + '}';
     }
 
+   
     
 }

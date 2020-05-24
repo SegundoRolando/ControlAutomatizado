@@ -1,6 +1,7 @@
 
 package ec.edu.ups.controlador;
 
+
 import ec.edu.ups.modelo.Cargo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,13 +26,13 @@ public class ControladorCargo {
     public void crear(String c) {
         
         PreparedStatement pst = null;
-        String sql = "INSERT INTO CON_CARGOS(CAR_ID, CAR_NOMBRE)"
+        String sql = "INSERT INTO CON_CARGOS(CAR_CODIGO, CAR_NOMBRE)"
                 + "VALUES (CON_CARGOS_SEQ.NEXTVAL,?)";
         try {
             conexion.Conectar();
             pst = conexion.getConexion().prepareStatement(sql);
             pst.setString(1, c);
-            pst.execute();
+            pst.executeUpdate();
             System.out.println("Guardado correctamente");
             conexion.Desconectar();
             JOptionPane.showMessageDialog(null, "Cargo Creado Correctamente");
@@ -44,7 +45,7 @@ public class ControladorCargo {
     public void actualizar(Cargo c, int n) {
         PreparedStatement pst = null;
         String sql = "UPDATE CON_CARGOS SET CAR_NOMBRE= ?"
-                + " WHERE CAR_ID =?";
+                + " WHERE CAR_CODIGO =?";
         try {
             conexion.Conectar();
             pst = conexion.getConexion().prepareStatement(sql);
@@ -59,14 +60,14 @@ public class ControladorCargo {
         }
     }
 
-    public void eliminar(int id) {
+    public void eliminar(int codigo) {
         try {
             PreparedStatement pst = null;
-            String sql = "DELETE FROM CON_CARGOS WHERE CAR_ID =?";
+            String sql = "DELETE FROM CON_CARGOS WHERE CAR_CODIGO =?";
 
             conexion.Conectar();
             pst = conexion.getConexion().prepareStatement(sql);
-            pst.setInt(1, id);
+            pst.setInt(1, codigo);
             pst.execute();
             conexion.Desconectar();
             JOptionPane.showMessageDialog(null, "ELiminado Correctamente", "Eliminar", JOptionPane.INFORMATION_MESSAGE);
@@ -87,7 +88,7 @@ public class ControladorCargo {
              
              while(respuesta.next()){
                  Cargo c= new Cargo();
-                 c.setId(respuesta.getInt(1));
+                 c.setCodigo(respuesta.getInt(1));
                  c.setNombre(respuesta.getString(2));
                  lista.add(c);
              }
@@ -102,14 +103,14 @@ public class ControladorCargo {
     public Cargo Buscar(String c){
          try {
             
-             String sql="SELECT * FROM CON_CARGOS WHERE CAR_ID='"+c+"'";
+             String sql="SELECT * FROM CON_CARGOS WHERE CAR_CODIGO='"+c+"'";
              conexion.Conectar();
              Statement sta=conexion.getConexion().createStatement();
              ResultSet respuesta =sta.executeQuery(sql);
              Cargo ca= new Cargo();
              while(respuesta.next()){
                  
-                 ca.setId(respuesta.getInt(1));
+                 ca.setCodigo(respuesta.getInt(1));
                  ca.setNombre(respuesta.getString(2));
              }
              return ca;

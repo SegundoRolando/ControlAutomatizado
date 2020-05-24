@@ -11,6 +11,7 @@ import ec.edu.ups.modelo.Cargo;
 import ec.edu.ups.modelo.Empleado;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -51,20 +52,20 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         Estado = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtnombrecliente = new javax.swing.JTextField();
+        txtNombre = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        txtapellido = new javax.swing.JTextField();
-        txtcedula = new javax.swing.JTextField();
-        txtdireccion = new javax.swing.JTextField();
+        txtApellido = new javax.swing.JTextField();
+        txtCedula = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txttelefono = new javax.swing.JTextField();
-        txtemail = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        txtcontrasenia = new javax.swing.JTextField();
+        txtContrasenia = new javax.swing.JTextField();
         rbtMasculino = new javax.swing.JRadioButton();
         rbtFemenino = new javax.swing.JRadioButton();
         rbtSoltero = new javax.swing.JRadioButton();
@@ -80,94 +81,100 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         btnActualizar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtcodigo = new javax.swing.JTextField();
+        txtCodigo = new javax.swing.JTextField();
         btnEliminar = new javax.swing.JButton();
         btnNuevo = new javax.swing.JButton();
-        bntguardar = new javax.swing.JButton();
+        bntGuardar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblEmpleados = new javax.swing.JTable();
 
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Informacion Administtrativa")));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nombre Administrador");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 41, -1, -1));
+        jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 35, 290, -1));
 
         jLabel2.setText("Apellido Administrador");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 64, -1, -1));
 
         jLabel3.setText("Cédula del Administrador");
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 92, -1, -1));
 
         jLabel5.setText("Direccion del Administrador");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 120, -1, -1));
+        jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 61, 290, -1));
+        jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 86, 290, -1));
+        jPanel1.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 117, 290, -1));
 
         jLabel6.setText("Telefono");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 156, -1, -1));
 
         jLabel7.setText("Correo Electronico");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 182, -1, -1));
+        jPanel1.add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(259, 153, 210, -1));
+        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 179, 290, -1));
 
         jLabel8.setText("Genero");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 205, -1, -1));
 
         jLabel9.setText("Contraseña");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 283, -1, -1));
+        jPanel1.add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 280, 220, -1));
 
         Genero.add(rbtMasculino);
         rbtMasculino.setText("Masculino");
+        jPanel1.add(rbtMasculino, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 201, -1, -1));
 
         Genero.add(rbtFemenino);
         rbtFemenino.setText("Femenino");
+        jPanel1.add(rbtFemenino, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 201, -1, -1));
 
         Estado.add(rbtSoltero);
         rbtSoltero.setText("Soltero");
+        jPanel1.add(rbtSoltero, new org.netbeans.lib.awtextra.AbsoluteConstraints(228, 242, -1, -1));
 
         Estado.add(rbtCasado);
         rbtCasado.setText("Casado");
+        jPanel1.add(rbtCasado, new org.netbeans.lib.awtextra.AbsoluteConstraints(309, 242, -1, -1));
 
         jLabel10.setText("Estado");
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 242, -1, -1));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setText("Buscar por:");
+        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 22, -1, -1));
 
-        cbxBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Eliga Una opcion" }));
+        cbxBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escoja una Opcion", "Nombre", "Cedula", "Cargo Trabajo" }));
         cbxBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxBuscarActionPerformed(evt);
             }
         });
+        jPanel5.add(cbxBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 54, 130, -1));
 
+        txtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBuscarActionPerformed(evt);
+            }
+        });
         txtBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtBuscarKeyPressed(evt);
             }
         });
+        jPanel5.add(txtBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 92, 130, -1));
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(cbxBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(61, 61, 61))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(jLabel12)
-                .addGap(18, 18, 18)
-                .addComponent(cbxBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
-        );
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, 260, 200));
 
         jLabel11.setText("Cargo");
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 315, -1, -1));
 
         cbxCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elija Su Cargo" }));
         cbxCargo.addActionListener(new java.awt.event.ActionListener() {
@@ -175,121 +182,15 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
                 cbxCargoActionPerformed(evt);
             }
         });
+        jPanel1.add(cbxCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 166, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel10))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtemail)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(rbtMasculino)
-                                                    .addComponent(rbtSoltero))
-                                                .addGap(10, 10, 10)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(rbtCasado)
-                                                    .addComponent(rbtFemenino)))
-                                            .addComponent(txtcontrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cbxCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 71, Short.MAX_VALUE))
-                                    .addComponent(txtdireccion)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel3))
-                                .addGap(28, 28, 28)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtcedula)
-                                    .addComponent(txtapellido)
-                                    .addComponent(txtnombrecliente))))
-                        .addGap(18, 18, 18)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(23, 23, 23))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtnombrecliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(txtapellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel3))
-                            .addComponent(txtcedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txtdireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(txttelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(rbtMasculino)
-                            .addComponent(rbtFemenino))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(rbtSoltero)
-                                .addComponent(rbtCasado))
-                            .addComponent(jLabel10))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                                .addComponent(txtcontrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbxCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel11)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 11, 930, 410));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Opciones"));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnActualizar.setText("Actualizar");
         btnActualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -297,10 +198,13 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
                 btnActualizarActionPerformed(evt);
             }
         });
+        jPanel2.add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 154, 110, -1));
 
         jLabel4.setText("Codigo");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 59, -1, -1));
 
-        txtcodigo.setEditable(false);
+        txtCodigo.setEditable(false);
+        jPanel2.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 28, 72, -1));
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -308,6 +212,7 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
                 btnEliminarActionPerformed(evt);
             }
         });
+        jPanel2.add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 195, 110, -1));
 
         btnNuevo.setText("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
@@ -320,13 +225,15 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
                 btnNuevoKeyPressed(evt);
             }
         });
+        jPanel2.add(btnNuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 120, 110, -1));
 
-        bntguardar.setText("Guardar");
-        bntguardar.addActionListener(new java.awt.event.ActionListener() {
+        bntGuardar.setText("Guardar");
+        bntGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bntguardarActionPerformed(evt);
+                bntGuardarActionPerformed(evt);
             }
         });
+        jPanel2.add(bntGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 91, 110, -1));
 
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -334,71 +241,14 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
                 btnSalirActionPerformed(evt);
             }
         });
+        jPanel2.add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 229, 110, -1));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(bntguardar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnNuevo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnActualizar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel4))
-                            .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 27, Short.MAX_VALUE)))
-                .addGap(25, 25, 25))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(txtcodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(bntguardar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnNuevo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnActualizar)
-                .addGap(18, 18, 18)
-                .addComponent(btnEliminar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSalir)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 180, 280));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(104, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 60, 380, 330));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tblEmpleados.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -423,53 +273,9 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblEmpleados);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1217, 129));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(30, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(79, 79, 79))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 1280, 180));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -477,30 +283,34 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
       
         Empleado e = new Empleado();
-        e.setCedula(txtcedula.getText());
-        e.setNombre(txtnombrecliente.getText());
-        e.setApellido(txtapellido.getText());
-        e.setEmail(txtemail.getText());
-        e.setDireccion(txtdireccion.getText());
-        e.setContrasenia(txtcontrasenia.getText());
+        e.setCedula(txtCedula.getText());
+        e.setNombre(txtNombre.getText());
+        e.setApellido(txtApellido.getText());
+        e.setEmail(txtEmail.getText());
+        e.setDireccion(txtDireccion.getText());
+        e.setContrasenia(txtContrasenia.getText());
         e.setCargo(BuscarCargo((String)cbxCargo.getSelectedItem()));
-        e.setTelefono(txttelefono.getText());
-        String genero="";
+        e.setTelefono(txtTelefono.getText());
+        
+        
+        
+        String genero;
         if(rbtFemenino.isSelected()){
            genero = "Femenino";
        }else{
            genero = "Masculino";
        }
-        e.setGenero(genero);
-         String estado="";
+         String estado;
         if(rbtSoltero.isSelected()){
            estado = "Soltero";
        }else{
            estado = "Casado";
        }
+        e.setGenero(genero);
         e.setEstado(estado);
-        e.setId(codigo);
+        e.setCodigo(codigo);
         controladorEmpleado.actualizar(e);
+        
         if((String)cbxBuscar.getSelectedItem()=="Cedula"){
                 buscarCedula();
             }else if((String)cbxBuscar.getSelectedItem()=="Nombre"){
@@ -512,7 +322,7 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        controladorEmpleado.eliminar(codigo);
+         controladorEmpleado.eliminar(codigo);
         if((String)cbxBuscar.getSelectedItem()=="Cedula"){
                 buscarCedula();
             }else if((String)cbxBuscar.getSelectedItem()=="Nombre"){
@@ -520,6 +330,7 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
             }else{
                 BuscarPuesto();
             }
+       
         limpiar();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
@@ -530,36 +341,36 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
       
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void bntguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntguardarActionPerformed
+    private void bntGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntGuardarActionPerformed
         // TODO add your handling code here:
         
         Empleado e = new Empleado();
         
-        e.setNombre(txtnombrecliente.getText());
-        e.setApellido(txtapellido.getText());
-        e.setCedula(txtcedula.getText());
-        e.setDireccion(txtdireccion.getText());
-        e.setTelefono(txttelefono.getText());
-        e.setEmail(txtemail.getText());
-         String genero="";
+        e.setNombre(txtNombre.getText());
+        e.setApellido(txtApellido.getText());
+        e.setCedula(txtCedula.getText());
+        e.setDireccion(txtDireccion.getText());
+        e.setTelefono(txtTelefono.getText());
+        e.setEmail(txtEmail.getText());
+         String genero;
         if(rbtFemenino.isSelected()){
            genero = "Femenino";
        }else{
            genero = "Masculino";
        }
-        e.setGenero(genero); String estado="";
+        e.setGenero(genero); String estado;
         if(rbtSoltero.isSelected()){
            estado = "Soltero";
        }else{
            estado = "Casado";
        }
         e.setEstado(estado);
-        e.setContrasenia(txtcontrasenia.getText());
+        e.setContrasenia(txtContrasenia.getText());
         e.setCargo(BuscarCargo((String)cbxCargo.getSelectedItem()));
         
         controladorEmpleado.crear(e);
     
-    }//GEN-LAST:event_bntguardarActionPerformed
+    }//GEN-LAST:event_bntGuardarActionPerformed
 
     
     
@@ -579,10 +390,11 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
 
     private void txtBuscarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBuscarKeyPressed
         // TODO add your handling code here:
+       
         if(evt.getKeyCode()==10){
             if((String)cbxBuscar.getSelectedItem()=="Cedula"){
                 buscarCedula();
-            }else if((String)cbxBuscar.getSelectedItem()=="Nombre"){
+            }  else if((String)cbxBuscar.getSelectedItem()=="Nombre"){
                 BuscarNombre();
             }else{
                 BuscarPuesto();
@@ -594,12 +406,12 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
          int seleccion =tblEmpleados.getSelectedRow();
         codigo=(int) tblEmpleados.getValueAt(seleccion, 0);
-        txtnombrecliente.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 1)));
-        txtapellido.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 2)));
-        txtcedula.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 3)));
-        txtdireccion.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 4)));
-        txttelefono.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 5)));
-        txtemail.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 6)));
+        txtNombre.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 1)));
+        txtApellido.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 2)));
+        txtCedula.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 3)));
+        txtDireccion.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 4)));
+        txtTelefono.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 5)));
+        txtEmail.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 6)));
          if (tblEmpleados.getValueAt(seleccion, 7)=="Masculino"){
             rbtMasculino.setSelected(false);
             rbtFemenino.setSelected(true);
@@ -615,7 +427,7 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
             rbtCasado.setSelected(false);
         }
        
-        txtcontrasenia.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 9)));
+        txtContrasenia.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 9)));
         cbxCargo.setSelectedItem(tblEmpleados.getValueAt(seleccion, 10));
         
     }//GEN-LAST:event_tblEmpleadosMouseClicked
@@ -624,11 +436,123 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxBuscarActionPerformed
 
+    private void txtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBuscarActionPerformed
+    public void buscarCedula(){
+        Empleado e=controladorEmpleado.buscarXCedula(txtBuscar.getText());
+        DefaultTableModel modelo= (DefaultTableModel) tblEmpleados.getModel();
+        modelo.setRowCount(0);
+        if(e.getApellido()!= null){
+       Object[] dato ={
+           
+           e.getCodigo(),
+           e.getNombre(),
+           e.getApellido(),
+           e.getCedula(),
+           e.getDireccion(),
+           e.getTelefono(),
+           e.getEmail(),
+           e.getGenero(),
+           e.getEstado(),
+           e.getContrasenia(),
+           BuscarCargoN(e.getCargo())
+       };
+       modelo.addRow(dato);
+    }else{
+            JOptionPane.showMessageDialog(this, "No existe el empleado");
+        }
+    }
+    
+    public void BuscarNombre(){
+        List<Empleado> lista=controladorEmpleado.buscarXNombre(txtBuscar.getText());
+        DefaultTableModel modelo= (DefaultTableModel) tblEmpleados.getModel();
+        modelo.setRowCount(0);
+        if(lista.size()!=0){
+        for (Empleado e : lista) {
+           Object[] dato ={
+           
+           e.getCodigo(),
+           e.getNombre(),
+           e.getApellido(),
+           e.getCedula(),
+           e.getDireccion(),
+           e.getTelefono(),
+           e.getEmail(),
+           e.getGenero(),
+           e.getEstado(),
+           e.getContrasenia(),
+           BuscarCargoN(e.getCargo()),
+               
+           };
+           modelo.addRow(dato);
+        }
+        }else{
+            JOptionPane.showMessageDialog(this, "Los empleados no existen");
+        }
+    }
+    
+    public void BuscarPuesto(){
+        List<Empleado> lista=controladorEmpleado.buscarXTrabajo(BuscarCargo(txtBuscar.getText()));
+        DefaultTableModel modelo= (DefaultTableModel) tblEmpleados.getModel();
+        modelo.setRowCount(0);
+        if(lista.size()!=0){
+        for (Empleado e : lista) {
+           Object[] dato ={ 
+           e.getCodigo(),
+           e.getNombre(),
+           e.getApellido(),
+           e.getCedula(),
+           e.getDireccion(),
+           e.getTelefono(),
+           e.getEmail(),
+           e.getGenero(),
+           e.getEstado(),
+           e.getContrasenia(),
+           BuscarCargoN(e.getCargo()),
+          
+           };
+           modelo.addRow(dato);
+        }
+        }else{
+            JOptionPane.showMessageDialog(this, "No existen los empleados");
+        }
+    }
+    
+     public String BuscarCargoN(int Cargo){
+        for (Cargo c : lista) {
+            
+            if(Cargo==c.getCodigo()){
+                return c.getNombre();
+            }
+        }
+        return null;
+    }
+    
+    public void llenarCargo(){
+        List<Cargo> lista=controladorCargo.listar();
+        this.lista=lista;
+        for (Cargo c : lista) {
+            cbxCargo.addItem(c.getNombre());
+        }
+    }
+   
+    
+    public int BuscarCargo(String Cargo){
+        for (Cargo c : lista) {
+            
+            if(Cargo.equals(c.getNombre()) ){
+                System.out.println(c.getCodigo());
+                return c.getCodigo();
+            }
+        }
+        return 0;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Estado;
     private javax.swing.ButtonGroup Genero;
-    private javax.swing.JButton bntguardar;
+    private javax.swing.JButton bntGuardar;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnNuevo;
@@ -658,23 +582,24 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton rbtMasculino;
     private javax.swing.JRadioButton rbtSoltero;
     private javax.swing.JTable tblEmpleados;
+    private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtBuscar;
-    private javax.swing.JTextField txtapellido;
-    private javax.swing.JTextField txtcedula;
-    private javax.swing.JTextField txtcodigo;
-    private javax.swing.JTextField txtcontrasenia;
-    private javax.swing.JTextField txtdireccion;
-    private javax.swing.JTextField txtemail;
-    private javax.swing.JTextField txtnombrecliente;
-    private javax.swing.JTextField txttelefono;
+    private javax.swing.JTextField txtCedula;
+    private javax.swing.JTextField txtCodigo;
+    private javax.swing.JTextField txtContrasenia;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
-
+/*
   public void buscarCedula(){
         Empleado e=controladorEmpleado.buscarXCedula(txtBuscar.getText());
         DefaultTableModel modelo= (DefaultTableModel) tblEmpleados.getModel();
         modelo.setRowCount(0);
+        if(e.getApellido()!= null){
        Object[] dato ={
-           e.getId(),
+           e.getCodigo(),
            e.getNombre(),
            e.getApellido(),
            e.getCedula(),
@@ -687,15 +612,20 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
            BuscarCargoN(e.getCargo())
        };
        modelo.addRow(dato);
+            }else{
+            JOptionPane.showMessageDialog(this, "No existe el empleado");
+        }
     }
+
     
     public void BuscarNombre(){
         List<Empleado> lista=controladorEmpleado.buscarXNombre(txtBuscar.getText());
         DefaultTableModel modelo= (DefaultTableModel) tblEmpleados.getModel();
         modelo.setRowCount(0);
+        if(lista.size()!=0){
         for (Empleado e : lista) {
            Object[] dato ={
-            e.getId(),
+           e.getCodigo(),
            e.getNombre(),
            e.getApellido(),
            e.getCedula(),
@@ -708,6 +638,9 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
            BuscarCargoN(e.getCargo())
            };
            modelo.addRow(dato);
+            }
+           }else{
+            JOptionPane.showMessageDialog(this, "Los empleados no existen");
         }
     }
     
@@ -715,9 +648,10 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         List<Empleado> lista=controladorEmpleado.buscarXTrabajo(BuscarCargo(txtBuscar.getText()));
         DefaultTableModel modelo= (DefaultTableModel) tblEmpleados.getModel();
         modelo.setRowCount(0);
+         if(lista.size()!=0){
         for (Empleado e : lista) {
            Object[] dato ={
-           e.getId(),
+           e.getCodigo(),
            e.getNombre(),
            e.getApellido(),
            e.getCedula(),
@@ -730,6 +664,10 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
            BuscarCargoN(e.getCargo()),
            };
            modelo.addRow(dato);
+           }
+         }else{
+            JOptionPane.showMessageDialog(this, "No existen los empleados");
+        
         }
     }
     
@@ -744,7 +682,7 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
     public String BuscarCargoN(int Cargo){
         for (Cargo c : lista) {
             
-            if(Cargo==c.getId()){
+            if(Cargo==c.getCodigo()){
                 
                 return c.getNombre();
             }
@@ -755,20 +693,21 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         for (Cargo c : lista) {
             
             if(Cargo.equals(c.getNombre()) ){
-                System.out.println(c.getId());
-                return c.getId();
+                System.out.println(c.getCodigo());
+                return c.getCodigo();
             }
         }
         return 0;
     }
+*/
     public void limpiar() {
-        txtcedula.setText("");
-        txtnombrecliente.setText("");
-        txtapellido.setText("");
-        txttelefono.setText("");
-        txtemail.setText("");
-        txtcontrasenia.setText("");
-        txtdireccion.setText("");
+        txtCedula.setText("");
+        txtNombre.setText("");
+        txtApellido.setText("");
+        txtTelefono.setText("");
+        txtEmail.setText("");
+        txtContrasenia.setText("");
+        txtDireccion.setText("");
         Genero.clearSelection();
         Estado.clearSelection();
         cbxCargo.setSelectedIndex(0); 

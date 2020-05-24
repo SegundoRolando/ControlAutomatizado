@@ -11,7 +11,7 @@ package ec.edu.ups.modelo;
  */
 public class Persona {
     
-    private int id;
+    private int codigo;
     private String nombre;
     private String apellido;
     private String cedula;
@@ -24,8 +24,8 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(int id, String nombre, String apellido, String cedula, String direccion, String telefono, String email, String genero, String estado) {
-        this.id = id;
+    public Persona(int codigo, String nombre, String apellido, String cedula, String direccion, String telefono, String email, String genero, String estado) {
+        this.codigo = codigo;
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
@@ -36,12 +36,12 @@ public class Persona {
         this.estado = estado;
     }
 
-    public int getId() {
-        return id;
+    public int getCodigo() {
+        return codigo;
     }
 
-    public void setId(int codigo) {
-        this.id = codigo;
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombre() {
@@ -110,9 +110,8 @@ public class Persona {
 
     @Override
     public String toString() {
-        return "Persona{" + "id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + ", genero=" + genero + ", estado=" + estado + '}';
+        return "Persona{" + "codigo=" + codigo + ", nombre=" + nombre + ", apellido=" + apellido + ", cedula=" + cedula + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + ", genero=" + genero + ", estado=" + estado + '}';
     }
-
 
     
 }

@@ -10,14 +10,10 @@ public class Empleado extends Persona{
     private int cargo;
 
     public Empleado() {
-      
     }
 
-   
-    public Empleado(String contrasenia, int cargo, int id, String nombre, String apellido, String cedula, String direccion, String telefono, String email, String genero, String estado) {
-        super(id, nombre, apellido, cedula, direccion, telefono, email, genero, estado);
-        this.contrasenia = contrasenia;
-        this.cargo = cargo;
+    public Empleado(int codigo, String nombre, String apellido, String cedula, String direccion, String telefono, String email, String genero, String estado) {
+        super(codigo, nombre, apellido, cedula, direccion, telefono, email, genero, estado);
     }
 
     public String getContrasenia() {
@@ -40,9 +36,6 @@ public class Empleado extends Persona{
     public String toString() {
         return "Empleado{" + "contrasenia=" + contrasenia + ", cargo=" + cargo + '}';
     }
-    
 
-   
- 
-    
+  
 }

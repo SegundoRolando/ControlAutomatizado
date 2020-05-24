@@ -1,6 +1,8 @@
 package ec.edu.ups.controlador;
 
+import ec.edu.ups.controlador.ConexionBD;
 import ec.edu.ups.modelo.Empleado;
+import static java.lang.System.out;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -26,10 +28,9 @@ public class ControladorEmpleado {
 
     public void crear(Empleado em) {
         
-        
         PreparedStatement pst = null;
-        String sql = "INSERT INTO CON_EMPLEADOS(EMP_ID, EMP_NOMBRE,EMP_APELLIDO,EMP_CEDULA,EMP_DIRECCION,EMP_TELEFONO,EMP_EMAIL,EMP_GENERO,EMP_ESTADO,EMP_CONTRASENIA,CARGOS_CAR_ID) "
-                +"VALUES (CON_EMPLEADOS_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO CON_EMPLEADOS(EMP_CODIGO, EMP_NOMBRE,EMP_APELLIDO,EMP_CEDULA, EMP_DIRECCION ,EMP_TELEFONO,EMP_EMAIL,EMP_GENERO,EMP_ESTADO, EMP_CONTRASENIA,CARGO_CODIGO)"
+        + " VALUES (CON_EMPLEADOS_SEQ.NEXTVAL,?,?,?,?,?,?,?,?,?,?)";
         try {
             conexion.Conectar();
             pst = conexion.getConexion().prepareStatement(sql);
@@ -45,6 +46,7 @@ public class ControladorEmpleado {
             pst.setString(9, em.getContrasenia());
             pst.setInt(10, em.getCargo());
             pst.executeUpdate();
+            out.println("insertado");
             conexion.getConexion().commit();
             JOptionPane.showMessageDialog(null, em.getNombre()+" Creado Correctamente");
             conexion.Desconectar();
@@ -57,8 +59,8 @@ public class ControladorEmpleado {
 
     public void actualizar(Empleado e) {
         PreparedStatement pst = null;
-        String sql = "UPDATE CON_EMPLEADOS SET EMP_NOMBRE= ?, EMP_APELLIDO= ?,EMP_CEDULA= ?, EMP_DIRECCION= ?,  EMP_TELEFONO= ?, EMP_EMAIL= ?, EMP_GENERO= ?, EMP_ESTADO= ?, EMP_CONTRASENIA= ?, CARGOS_CAR_ID=?"
-                + " WHERE EMP_ID =?";
+        String sql = "UPDATE CON_EMPLEADOS SET EMP_NOMBRE= ?, EMP_APELLIDO= ?,EMP_CEDULA= ?, EMP_DIRECCION= ?,  EMP_TELEFONO= ?, EMP_EMAIL= ?, EMP_GENERO= ?, EMP_ESTADO= ?, EMP_CONTRASENIA= ?, CARGO_CODIGO=?"
+                + " WHERE EMP_CODIGO =?";
         try {
             conexion.Conectar();
             pst = conexion.getConexion().prepareStatement(sql);
@@ -72,7 +74,7 @@ public class ControladorEmpleado {
             pst.setString(8, e.getGenero());
             pst.setString(9, e.getContrasenia());
             pst.setInt(10, e.getCargo());
-            pst.setInt(11, e.getId());
+            pst.setInt(11, e.getCodigo());
             pst.execute();
             JOptionPane.showMessageDialog(null, e.getNombre()+" Actualizado Correctamente");
             conexion.getConexion().commit();
@@ -86,7 +88,7 @@ public class ControladorEmpleado {
  public void eliminar(int Codigo) {
         try {
             PreparedStatement pst = null;
-            String sql = "DELETE FROM CON_EMPLEADOS WHERE EMP_ID =?";
+            String sql = "DELETE FROM CON_EMPLEADOS WHERE EMP_CODIGO =?";
 
             conexion.Conectar();
             pst = conexion.getConexion().prepareStatement(sql);
@@ -111,7 +113,7 @@ public class ControladorEmpleado {
             ResultSet respuesta=sta.executeQuery(sql);
             
             while(respuesta.next()){
-                e.setId(respuesta.getInt(1));
+                e.setCodigo(respuesta.getInt(1));
                 e.setNombre(respuesta.getString(2));
                 e.setApellido(respuesta.getString(3));
                 e.setCedula(respuesta.getString(4));
@@ -141,7 +143,7 @@ public class ControladorEmpleado {
             ResultSet respuesta=sta.executeQuery(sql);
             while(respuesta.next()){
                 Empleado e= new Empleado();
-                e.setId(respuesta.getInt(1));
+                e.setCodigo(respuesta.getInt(1));
                 e.setNombre(respuesta.getString(2));
                 e.setApellido(respuesta.getString(3));
                 e.setCedula(respuesta.getString(4));
@@ -165,14 +167,14 @@ public class ControladorEmpleado {
    public List<Empleado> buscarXTrabajo(int n){
         try {
             List<Empleado>lista=new ArrayList<>();
-            String sql="SELECT * FROM CON_EMPLEADOS WHERE CARGOS_CAR_ID= "+n+"";
+            String sql="SELECT * FROM CON_EMPLEADOS WHERE CARGO_CODIGO= "+n+"";
             
             conexion.Conectar();
             Statement sta=conexion.getConexion().createStatement();
             ResultSet respuesta=sta.executeQuery(sql);
             while(respuesta.next()){
                 Empleado e= new Empleado();
-               e.setId(respuesta.getInt(1));
+               e.setCodigo(respuesta.getInt(1));
                 e.setNombre(respuesta.getString(2));
                 e.setApellido(respuesta.getString(3));
                 e.setCedula(respuesta.getString(4));

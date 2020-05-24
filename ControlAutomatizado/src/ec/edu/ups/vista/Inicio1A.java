@@ -5,12 +5,12 @@
  */
 package ec.edu.ups.vista;
 
-import ec.edu.ups.vista.Facturacion;
-import ec.edu.ups.vista.Categoria;
+
 import ec.edu.ups.controlador.ConexionBD;
 import ec.edu.ups.controlador.ControladorCargo;
 import ec.edu.ups.controlador.ControladorEmpleado;
-import static java.awt.Frame.MAXIMIZED_BOTH;
+
+
 
 
 
@@ -35,7 +35,6 @@ public class Inicio1A extends javax.swing.JFrame {
         controladorEmpleado = new ControladorEmpleado();
         this.empleado=empleado;
         this.n=n;
-        this.setExtendedState(MAXIMIZED_BOTH);
     }
 
     
@@ -238,23 +237,14 @@ public class Inicio1A extends javax.swing.JFrame {
 
     private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
         // TODO add your handling code here:
-        Proveedor proveedor= new Proveedor();
-        desktopPane.add(proveedor);
-        proveedor.show();
     }//GEN-LAST:event_contentMenuItemActionPerformed
 
     private void contentMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItem1ActionPerformed
         // TODO add your handling code here:
-        Producto producto=new Producto();
-        desktopPane.add(producto);
-        producto.show();
     }//GEN-LAST:event_contentMenuItem1ActionPerformed
 
     private void cutMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItem1ActionPerformed
-        // TODO add your handling code here:
-        Facturacion facturacion=new Facturacion();
-        desktopPane.add(facturacion);
-        facturacion.show();    
+        // TODO add your handling code here:  
     }//GEN-LAST:event_cutMenuItem1ActionPerformed
 
     private void copyMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_copyMenuItem1ActionPerformed
@@ -263,16 +253,11 @@ public class Inicio1A extends javax.swing.JFrame {
 
     private void contentMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItem2ActionPerformed
         // TODO add your handling code here:
-        Categoria categoria =new Categoria();
-        desktopPane.add(categoria);
-        categoria.show();
     }//GEN-LAST:event_contentMenuItem2ActionPerformed
 
     private void contentMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItem3ActionPerformed
         // TODO add your handling code here:
-        Medida medida=new Medida();
-        desktopPane.add(medida);
-        medida.show();
+       
     }//GEN-LAST:event_contentMenuItem3ActionPerformed
 
     private void saveAsMenuItemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_saveAsMenuItemKeyPressed
