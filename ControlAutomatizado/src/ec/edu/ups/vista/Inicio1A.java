@@ -23,6 +23,7 @@ public class Inicio1A extends javax.swing.JFrame {
     private VentanaCargo ventanaCargo;
     private ControladorEmpleado controladorEmpleado;
     private ControladorCargo controladorCargo;
+    private VentanaProducto ventanaProducto;
     /**
      * Creates new form Inicio
      */
@@ -33,8 +34,10 @@ public class Inicio1A extends javax.swing.JFrame {
         initComponents();
         controladorCargo = new ControladorCargo();
         controladorEmpleado = new ControladorEmpleado();
+        ventanaProducto=new VentanaProducto();
         this.empleado=empleado;
         this.n=n;
+        this.ventanaProducto=ventanaProducto;
     }
 
     
@@ -240,7 +243,12 @@ public class Inicio1A extends javax.swing.JFrame {
     }//GEN-LAST:event_contentMenuItemActionPerformed
 
     private void contentMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:-- ventana producto
+        desktopPane.removeAll();
+        desktopPane.repaint();
+        ventanaProducto = new VentanaProducto();
+        desktopPane.add(ventanaProducto);
+        ventanaProducto.show();
     }//GEN-LAST:event_contentMenuItem1ActionPerformed
 
     private void cutMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItem1ActionPerformed

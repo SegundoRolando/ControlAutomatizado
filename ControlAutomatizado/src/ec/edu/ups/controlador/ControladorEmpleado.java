@@ -121,7 +121,7 @@ public class ControladorEmpleado {
                 e.setTelefono(respuesta.getString(6));
                 e.setEmail(respuesta.getString(7));
                 e.setGenero(respuesta.getString(8));
-                e.setGenero(respuesta.getString(9));
+                e.setEstado(respuesta.getString(9));
                 e.setContrasenia(respuesta.getString(10));
                 e.setCargo(respuesta.getInt(11));
             }
@@ -151,7 +151,7 @@ public class ControladorEmpleado {
                 e.setTelefono(respuesta.getString(6));
                 e.setEmail(respuesta.getString(7));
                 e.setGenero(respuesta.getString(8));
-                e.setGenero(respuesta.getString(9));
+                e.setEstado(respuesta.getString(9));
                 e.setContrasenia(respuesta.getString(10));
                 e.setCargo(respuesta.getInt(11));
                 lista.add(e);
@@ -182,7 +182,7 @@ public class ControladorEmpleado {
                 e.setTelefono(respuesta.getString(6));
                 e.setEmail(respuesta.getString(7));
                 e.setGenero(respuesta.getString(8));
-                e.setGenero(respuesta.getString(9));
+                e.setEstado(respuesta.getString(9));
                 e.setContrasenia(respuesta.getString(10));
                 e.setCargo(respuesta.getInt(11));
                 lista.add(e);

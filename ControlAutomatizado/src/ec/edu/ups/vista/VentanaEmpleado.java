@@ -300,13 +300,14 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
        }else{
            genero = "Masculino";
        }
+        e.setGenero(genero);
          String estado;
         if(rbtSoltero.isSelected()){
            estado = "Soltero";
        }else{
            estado = "Casado";
        }
-        e.setGenero(genero);
+        
         e.setEstado(estado);
         e.setCodigo(codigo);
         controladorEmpleado.actualizar(e);
@@ -358,7 +359,8 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
        }else{
            genero = "Masculino";
        }
-        e.setGenero(genero); String estado;
+        e.setGenero(genero); 
+        String estado;
         if(rbtSoltero.isSelected()){
            estado = "Soltero";
        }else{
