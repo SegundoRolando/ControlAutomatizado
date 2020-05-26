@@ -9,6 +9,8 @@ package ec.edu.ups.vista;
 import ec.edu.ups.controlador.ConexionBD;
 import ec.edu.ups.controlador.ControladorCargo;
 import ec.edu.ups.controlador.ControladorEmpleado;
+import ec.edu.ups.controlador.ControladorProveedor;
+import ec.edu.ups.controlador.ControladorProveedorProducto;
 
 
 
@@ -24,17 +26,25 @@ public class Inicio1A extends javax.swing.JFrame {
     private ControladorEmpleado controladorEmpleado;
     private ControladorCargo controladorCargo;
     private VentanaProducto ventanaProducto;
+    private VentanaProveedor ventanaProveedor;
+    private ControladorProveedor controladorProveedor;
+    private ControladorProveedorProducto controladorProveedorProducto;
     /**
      * Creates new form Inicio
      */
     private int empleado;
     private int n;
     
+    
     public Inicio1A(int n,int empleado) {
         initComponents();
         controladorCargo = new ControladorCargo();
         controladorEmpleado = new ControladorEmpleado();
+        controladorProveedor =new ControladorProveedor();
+        controladorProveedorProducto=new ControladorProveedorProducto();
+        
         ventanaProducto=new VentanaProducto();
+        
         this.empleado=empleado;
         this.n=n;
         this.ventanaProducto=ventanaProducto;
@@ -240,6 +250,13 @@ public class Inicio1A extends javax.swing.JFrame {
 
     private void contentMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItemActionPerformed
         // TODO add your handling code here:
+        desktopPane.removeAll();
+        desktopPane.repaint();
+       ventanaProveedor=new VentanaProveedor(new ControladorProveedor(),new ControladorProveedorProducto());
+        ventanaProveedor.setVisible(true);
+        desktopPane.add(ventanaProveedor);
+    
+        
     }//GEN-LAST:event_contentMenuItemActionPerformed
 
     private void contentMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItem1ActionPerformed

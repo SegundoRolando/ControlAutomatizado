@@ -71,7 +71,7 @@ public class ControladorEmpleado {
             pst.setString(5, e.getTelefono());
             pst.setString(6, e.getEmail());
             pst.setString(7, e.getGenero());
-            pst.setString(8, e.getGenero());
+            pst.setString(8, e.getEstado());
             pst.setString(9, e.getContrasenia());
             pst.setInt(10, e.getCargo());
             pst.setInt(11, e.getCodigo());
