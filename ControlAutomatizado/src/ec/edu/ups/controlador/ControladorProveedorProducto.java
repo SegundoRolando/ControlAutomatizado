@@ -27,8 +27,8 @@ public class ControladorProveedorProducto {
     public void CrearProductoProveedor(ProductoProveedor pp){
         try {
             PreparedStatement pst=null;
-            String sql="INSERT INTO FER_PRODUCTO_PROVEEDORES (PROD_PRO_ID,PROD_PROV_CANTIDAD, FER_PROVEEDOR_PROV_CODIGO, FER_PRODUCTO_PRO_CODIGO)"
-                    + "VALUES (FER_pRODUCTO_PROVEEDORES_SEQ.NEXTVAL,?,?,?)";
+            String sql="INSERT INTO CON_PROVEEDORPRODUCTOS (PROP_CODIGO,PROP_STOCK,PROVEEDOR_PRO_CODIGO, PRODUCTO_PROD_CODIGO )"
+                    + "VALUES (CON_PROVEEDORPRODUCTOS_SEQ.NEXTVAL,?,?,?)";
             
             
             conexion.Conectar();
@@ -49,7 +49,7 @@ public class ControladorProveedorProducto {
     
     public int buscarcodproveedor(int codigo){
         try {
-            String sql="SELECT * FROM FER_PRODUCTO_PROVEEDORES WHERE FER_PRODUCTO_PRO_CODIGO="+codigo+"";
+            String sql="SELECT * FROM CON_PROVEEDORPRODUCTOS WHERE PRODUCTO_PROD_CODIGO="+codigo+"";
             conexion.Conectar();
             Statement sta=conexion.getConexion().createStatement();
             ResultSet respuesta=sta.executeQuery(sql);
@@ -74,7 +74,7 @@ public class ControladorProveedorProducto {
        List<ProductoProveedor> lista= new ArrayList<>();
        
        try {
-            String sql="SELECT * FROM FER_PRODUCTO_PROVEEDORES";
+            String sql="SELECT * FROM CON_PROVEEDORPRODUCTOS";
             conexion.Conectar();
             Statement sta=conexion.getConexion().createStatement();
             ResultSet respuesta=sta.executeQuery(sql);
@@ -82,7 +82,7 @@ public class ControladorProveedorProducto {
              while(respuesta.next()){
                 ProductoProveedor pp=new ProductoProveedor();
                 pp.setCodigo(respuesta.getInt(1));
-                pp.setCantidad(respuesta.getDouble(2));
+                pp.setCantidad(respuesta.getInt(2));
                 pp.setCodigoProveedor(respuesta.getInt(3));
                 pp.setCodigoProducto(respuesta.getInt(4));
                 lista.add(pp);
@@ -99,7 +99,7 @@ public class ControladorProveedorProducto {
     public void Eliminar(int codigo){
           try {
             PreparedStatement pst=null;
-            String sql="delete from FER_PRODUCTO_PROVEEDORES where FER_PRODUCTO_PRO_CODIGO =?";
+            String sql="delete from CON_PROVEEDORPRODUCTOS where PRODUCTO_PROD_CODIGO =?";
             
             conexion.Conectar();
             pst=conexion.getConexion().prepareStatement(sql);
@@ -118,7 +118,7 @@ public class ControladorProveedorProducto {
     public void EliminarProveedor(int codigo){
           try {
             PreparedStatement pst=null;
-            String sql="delete from FER_PRODUCTO_PROVEEDORES where FER_PROVEEDOR_PROV_CODIGO =?";
+            String sql="delete from CON_PROVEEDORPRODUCTOS where   PROVEEDOR_PRO_CODIGO  =?";
             
             conexion.Conectar();
             pst=conexion.getConexion().prepareStatement(sql);

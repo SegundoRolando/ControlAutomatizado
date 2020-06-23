@@ -76,6 +76,16 @@
                 <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="saveAsMenuItem1KeyPressed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="saveAsMenuItem2">
+              <Properties>
+                <Property name="mnemonic" type="int" value="97"/>
+                <Property name="text" type="java.lang.String" value="Clientes"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveAsMenuItem2ActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="saveAsMenuItem2KeyPressed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="helpMenu">
@@ -117,15 +127,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contentMenuItem2ActionPerformed"/>
-              </Events>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="contentMenuItem3">
-              <Properties>
-                <Property name="mnemonic" type="int" value="99"/>
-                <Property name="text" type="java.lang.String" value="Medida"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contentMenuItem3ActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>

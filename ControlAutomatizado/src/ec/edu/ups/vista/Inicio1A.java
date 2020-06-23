@@ -8,7 +8,10 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.controlador.ConexionBD;
 import ec.edu.ups.controlador.ControladorCargo;
+import ec.edu.ups.controlador.ControladorCategoria;
+import ec.edu.ups.controlador.ControladorCliente;
 import ec.edu.ups.controlador.ControladorEmpleado;
+import ec.edu.ups.controlador.ControladorProducto;
 import ec.edu.ups.controlador.ControladorProveedor;
 import ec.edu.ups.controlador.ControladorProveedorProducto;
 
@@ -29,11 +32,22 @@ public class Inicio1A extends javax.swing.JFrame {
     private VentanaProveedor ventanaProveedor;
     private ControladorProveedor controladorProveedor;
     private ControladorProveedorProducto controladorProveedorProducto;
+    
+    
+     private VentanaCategoria ventanaCategoria;
+     private ControladorCategoria controladorCategoria;
+     
+    private VentanaCliente ventanaCliente;
+    private ControladorCliente  controladorCliente;
     /**
      * Creates new form Inicio
      */
     private int empleado;
     private int n;
+    
+    
+    private VentanaProducto ve;
+    
     
     
     public Inicio1A(int n,int empleado) {
@@ -42,8 +56,9 @@ public class Inicio1A extends javax.swing.JFrame {
         controladorEmpleado = new ControladorEmpleado();
         controladorProveedor =new ControladorProveedor();
         controladorProveedorProducto=new ControladorProveedorProducto();
-        
-        ventanaProducto=new VentanaProducto();
+        controladorCategoria =new ControladorCategoria();
+        controladorCliente =new ControladorCliente();
+       
         
         this.empleado=empleado;
         this.n=n;
@@ -76,12 +91,12 @@ public class Inicio1A extends javax.swing.JFrame {
         fileMenu = new javax.swing.JMenu();
         saveAsMenuItem = new javax.swing.JMenuItem();
         saveAsMenuItem1 = new javax.swing.JMenuItem();
+        saveAsMenuItem2 = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         helpMenu1 = new javax.swing.JMenu();
         contentMenuItem1 = new javax.swing.JMenuItem();
         contentMenuItem2 = new javax.swing.JMenuItem();
-        contentMenuItem3 = new javax.swing.JMenuItem();
         editMenu1 = new javax.swing.JMenu();
         cutMenuItem1 = new javax.swing.JMenuItem();
         copyMenuItem1 = new javax.swing.JMenuItem();
@@ -138,6 +153,20 @@ public class Inicio1A extends javax.swing.JFrame {
         });
         fileMenu.add(saveAsMenuItem1);
 
+        saveAsMenuItem2.setMnemonic('a');
+        saveAsMenuItem2.setText("Clientes");
+        saveAsMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveAsMenuItem2ActionPerformed(evt);
+            }
+        });
+        saveAsMenuItem2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                saveAsMenuItem2KeyPressed(evt);
+            }
+        });
+        fileMenu.add(saveAsMenuItem2);
+
         menuBar.add(fileMenu);
 
         helpMenu.setMnemonic('h');
@@ -174,15 +203,6 @@ public class Inicio1A extends javax.swing.JFrame {
             }
         });
         helpMenu1.add(contentMenuItem2);
-
-        contentMenuItem3.setMnemonic('c');
-        contentMenuItem3.setText("Medida");
-        contentMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contentMenuItem3ActionPerformed(evt);
-            }
-        });
-        helpMenu1.add(contentMenuItem3);
 
         menuBar.add(helpMenu1);
 
@@ -261,11 +281,12 @@ public class Inicio1A extends javax.swing.JFrame {
 
     private void contentMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItem1ActionPerformed
         // TODO add your handling code here:-- ventana producto
-        desktopPane.removeAll();
+         desktopPane.removeAll();
         desktopPane.repaint();
-        ventanaProducto = new VentanaProducto();
-        desktopPane.add(ventanaProducto);
-        ventanaProducto.show();
+        ve=new VentanaProducto(new ControladorCategoria(),new ControladorProducto(),new ControladorProveedor(),new ControladorProveedorProducto());
+        ve.setVisible(true);
+        desktopPane.add(ve);
+       
     }//GEN-LAST:event_contentMenuItem1ActionPerformed
 
     private void cutMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutMenuItem1ActionPerformed
@@ -278,12 +299,14 @@ public class Inicio1A extends javax.swing.JFrame {
 
     private void contentMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItem2ActionPerformed
         // TODO add your handling code here:
+        desktopPane.removeAll();
+        desktopPane.repaint();
+        VentanaCategoria ventanaCategoria= new VentanaCategoria(controladorCategoria);
+        ventanaCategoria.setVisible(true);
+        desktopPane.add(ventanaCategoria);
+       // ventanaProducto.show();
+      
     }//GEN-LAST:event_contentMenuItem2ActionPerformed
-
-    private void contentMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contentMenuItem3ActionPerformed
-        // TODO add your handling code here:
-       
-    }//GEN-LAST:event_contentMenuItem3ActionPerformed
 
     private void saveAsMenuItemKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_saveAsMenuItemKeyPressed
         // TODO add your handling code here:
@@ -304,6 +327,21 @@ public class Inicio1A extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_saveAsMenuItem1KeyPressed
 
+    private void saveAsMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAsMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        
+         desktopPane.removeAll();
+        desktopPane.repaint();
+        ventanaCliente = new VentanaCliente(controladorCliente);
+        ventanaCliente.setVisible(true);
+        desktopPane.add(ventanaCliente);
+        ventanaCliente.show();
+    }//GEN-LAST:event_saveAsMenuItem2ActionPerformed
+
+    private void saveAsMenuItem2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_saveAsMenuItem2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveAsMenuItem2KeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -313,7 +351,6 @@ public class Inicio1A extends javax.swing.JFrame {
     private javax.swing.JMenuItem contentMenuItem;
     private javax.swing.JMenuItem contentMenuItem1;
     private javax.swing.JMenuItem contentMenuItem2;
-    private javax.swing.JMenuItem contentMenuItem3;
     private javax.swing.JMenuItem copyMenuItem1;
     private javax.swing.JMenuItem copyMenuItem2;
     private javax.swing.JMenuItem cutMenuItem1;
@@ -335,6 +372,7 @@ public class Inicio1A extends javax.swing.JFrame {
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem1;
+    private javax.swing.JMenuItem saveAsMenuItem2;
     // End of variables declaration//GEN-END:variables
 
 }

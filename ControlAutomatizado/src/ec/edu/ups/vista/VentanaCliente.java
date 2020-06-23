@@ -5,10 +5,9 @@
  */
 package ec.edu.ups.vista;
 
-import ec.edu.ups.controlador.ControladorCargo;
-import ec.edu.ups.controlador.ControladorEmpleado;
-import ec.edu.ups.modelo.Cargo;
-import ec.edu.ups.modelo.Empleado;
+
+import ec.edu.ups.controlador.ControladorCliente;
+import ec.edu.ups.modelo.Cliente;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -19,23 +18,21 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author srcti
  */
-public class VentanaEmpleado extends javax.swing.JInternalFrame {
+public class VentanaCliente extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form NewJInternalFrame
      */
   
-    private ControladorEmpleado controladorEmpleado;
-    private ControladorCargo controladorCargo;
-    private Empleado empleado;
-    private List<Cargo> lista;
+    private ControladorCliente controladorCliente;
+   
+    private Cliente cliente;
+
     private int codigo;
-    public VentanaEmpleado(ControladorEmpleado controladorEmpleado, ControladorCargo controladorCargo) {
+    public VentanaCliente(ControladorCliente controladorCliente) {
         initComponents();
-        this.controladorEmpleado= controladorEmpleado;
-        this.controladorCargo=controladorCargo;
-        lista=new ArrayList<>();
-        llenarCargo();
+        this.controladorCliente= controladorCliente;
+       
     }
 
 
@@ -64,8 +61,6 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         txtTelefono = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        txtContrasenia = new javax.swing.JTextField();
         rbtMasculino = new javax.swing.JRadioButton();
         rbtFemenino = new javax.swing.JRadioButton();
         rbtSoltero = new javax.swing.JRadioButton();
@@ -75,8 +70,6 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         jLabel12 = new javax.swing.JLabel();
         cbxBuscar = new javax.swing.JComboBox<>();
         txtBuscar = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        cbxCargo = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnActualizar = new javax.swing.JButton();
@@ -92,20 +85,20 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Informacion Administtrativa")));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createTitledBorder(""), "Informacion Cliente")));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Nombre Administrador");
+        jLabel1.setText("Nombre ");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 41, -1, -1));
         jPanel1.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 35, 290, -1));
 
-        jLabel2.setText("Apellido Administrador");
+        jLabel2.setText("Apellido ");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 64, -1, -1));
 
-        jLabel3.setText("Cédula del Administrador");
+        jLabel3.setText("Cédula ");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 92, -1, -1));
 
-        jLabel5.setText("Direccion del Administrador");
+        jLabel5.setText("Direccion ");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 120, -1, -1));
         jPanel1.add(txtApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 61, 290, -1));
         jPanel1.add(txtCedula, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 86, 290, -1));
@@ -121,10 +114,6 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Genero");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 205, -1, -1));
-
-        jLabel9.setText("Contraseña");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 283, -1, -1));
-        jPanel1.add(txtContrasenia, new org.netbeans.lib.awtextra.AbsoluteConstraints(257, 280, 220, -1));
 
         Genero.add(rbtMasculino);
         rbtMasculino.setText("Masculino");
@@ -151,7 +140,7 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         jLabel12.setText("Buscar por:");
         jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 22, -1, -1));
 
-        cbxBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escoja una Opcion", "Nombre", "Cedula", "Cargo Trabajo" }));
+        cbxBuscar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Escoja una Opcion", "Nombre", "Cedula" }));
         cbxBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbxBuscarActionPerformed(evt);
@@ -173,18 +162,7 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, 260, 200));
 
-        jLabel11.setText("Cargo");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(81, 315, -1, -1));
-
-        cbxCargo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Elija Su Cargo" }));
-        cbxCargo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbxCargoActionPerformed(evt);
-            }
-        });
-        jPanel1.add(cbxCargo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 310, 166, -1));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 11, 930, 410));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(38, 11, 930, 300));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -245,7 +223,7 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
 
         jPanel3.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 180, 280));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 60, 380, 330));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 0, 380, 330));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -255,11 +233,11 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Nombre", "Apellido", "Cédula", "Direccion", "Telefono", "Correo", "Genero", "Estado", "Contraseña", "Cargo"
+                "Codigo", "Nombre", "Apellido", "Cédula", "Direccion", "Telefono", "Correo", "Genero", "Estado"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, true, true
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -273,23 +251,21 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(tblEmpleados);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1217, 129));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1280, 240));
 
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 1280, 180));
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, 1310, 290));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
       
-        Empleado e = new Empleado();
+        Cliente e = new Cliente();
         e.setCedula(txtCedula.getText());
         e.setNombre(txtNombre.getText());
         e.setApellido(txtApellido.getText());
         e.setEmail(txtEmail.getText());
         e.setDireccion(txtDireccion.getText());
-        e.setContrasenia(txtContrasenia.getText());
-        e.setCargo(BuscarCargo((String)cbxCargo.getSelectedItem()));
         e.setTelefono(txtTelefono.getText());
         
         
@@ -310,26 +286,22 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         
         e.setEstado(estado);
         e.setCodigo(codigo);
-        controladorEmpleado.actualizar(e);
+        controladorCliente.actualizar(e);
         
         if((String)cbxBuscar.getSelectedItem()=="Cedula"){
                 buscarCedula();
             }else if((String)cbxBuscar.getSelectedItem()=="Nombre"){
                 BuscarNombre();
-            }else{
-                BuscarPuesto();
             }
     }//GEN-LAST:event_btnActualizarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-         controladorEmpleado.eliminar(codigo);
+         controladorCliente.eliminar(codigo);
         if((String)cbxBuscar.getSelectedItem()=="Cedula"){
                 buscarCedula();
             }else if((String)cbxBuscar.getSelectedItem()=="Nombre"){
                 BuscarNombre();
-            }else{
-                BuscarPuesto();
             }
        
         limpiar();
@@ -345,7 +317,7 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
     private void bntGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bntGuardarActionPerformed
         // TODO add your handling code here:
         
-        Empleado e = new Empleado();
+        Cliente e = new Cliente();
         
         e.setNombre(txtNombre.getText());
         e.setApellido(txtApellido.getText());
@@ -367,19 +339,14 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
            estado = "Casado";
        }
         e.setEstado(estado);
-        e.setContrasenia(txtContrasenia.getText());
-        e.setCargo(BuscarCargo((String)cbxCargo.getSelectedItem()));
         
-        controladorEmpleado.crear(e);
+        
+        controladorCliente.crear(e);
     
     }//GEN-LAST:event_bntGuardarActionPerformed
 
     
     
-    private void cbxCargoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxCargoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbxCargoActionPerformed
-
     private void btnNuevoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnNuevoKeyPressed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnNuevoKeyPressed
@@ -398,8 +365,6 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
                 buscarCedula();
             }  else if((String)cbxBuscar.getSelectedItem()=="Nombre"){
                 BuscarNombre();
-            }else{
-                BuscarPuesto();
             }
         }
     }//GEN-LAST:event_txtBuscarKeyPressed
@@ -428,9 +393,6 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
              rbtSoltero.setSelected(true);
             rbtCasado.setSelected(false);
         }
-       
-        txtContrasenia.setText(String.valueOf(tblEmpleados.getValueAt(seleccion, 9)));
-        cbxCargo.setSelectedItem(tblEmpleados.getValueAt(seleccion, 10));
         
     }//GEN-LAST:event_tblEmpleadosMouseClicked
 
@@ -442,7 +404,7 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtBuscarActionPerformed
     public void buscarCedula(){
-        Empleado e=controladorEmpleado.buscarXCedula(txtBuscar.getText());
+        Cliente e=controladorCliente.buscarXCedula(txtBuscar.getText());
         DefaultTableModel modelo= (DefaultTableModel) tblEmpleados.getModel();
         modelo.setRowCount(0);
         if(e.getApellido()!= null){
@@ -457,23 +419,21 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
            e.getEmail(),
            e.getGenero(),
            e.getEstado(),
-           e.getContrasenia(),
-           BuscarCargoN(e.getCargo())
+          
        };
        modelo.addRow(dato);
     }else{
-            JOptionPane.showMessageDialog(this, "No existe el empleado");
+            JOptionPane.showMessageDialog(this, "No existe el Cliente");
         }
     }
     
     public void BuscarNombre(){
-        List<Empleado> lista=controladorEmpleado.buscarXNombre(txtBuscar.getText());
+        List<Cliente> lista=controladorCliente.buscarXNombre(txtBuscar.getText());
         DefaultTableModel modelo= (DefaultTableModel) tblEmpleados.getModel();
         modelo.setRowCount(0);
         if(lista.size()!=0){
-        for (Empleado e : lista) {
+        for (Cliente e : lista) {
            Object[] dato ={
-           
            e.getCodigo(),
            e.getNombre(),
            e.getApellido(),
@@ -483,73 +443,15 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
            e.getEmail(),
            e.getGenero(),
            e.getEstado(),
-           e.getContrasenia(),
-           BuscarCargoN(e.getCargo()),
-               
-           };
+          };
            modelo.addRow(dato);
         }
         }else{
-            JOptionPane.showMessageDialog(this, "Los empleados no existen");
+            JOptionPane.showMessageDialog(this, "Los Clientes no existen");
         }
     }
     
-    public void BuscarPuesto(){
-        List<Empleado> lista=controladorEmpleado.buscarXTrabajo(BuscarCargo(txtBuscar.getText()));
-        DefaultTableModel modelo= (DefaultTableModel) tblEmpleados.getModel();
-        modelo.setRowCount(0);
-        if(lista.size()!=0){
-        for (Empleado e : lista) {
-           Object[] dato ={ 
-           e.getCodigo(),
-           e.getNombre(),
-           e.getApellido(),
-           e.getCedula(),
-           e.getDireccion(),
-           e.getTelefono(),
-           e.getEmail(),
-           e.getGenero(),
-           e.getEstado(),
-           e.getContrasenia(),
-           BuscarCargoN(e.getCargo()),
-          
-           };
-           modelo.addRow(dato);
-        }
-        }else{
-            JOptionPane.showMessageDialog(this, "No existen los empleados");
-        }
-    }
     
-     public String BuscarCargoN(int Cargo){
-        for (Cargo c : lista) {
-            
-            if(Cargo==c.getCodigo()){
-                return c.getNombre();
-            }
-        }
-        return null;
-    }
-    
-    public void llenarCargo(){
-        List<Cargo> lista=controladorCargo.listar();
-        this.lista=lista;
-        for (Cargo c : lista) {
-            cbxCargo.addItem(c.getNombre());
-        }
-    }
-   
-    
-    public int BuscarCargo(String Cargo){
-        for (Cargo c : lista) {
-            
-            if(Cargo.equals(c.getNombre()) ){
-                System.out.println(c.getCodigo());
-                return c.getCodigo();
-            }
-        }
-        return 0;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup Estado;
@@ -560,10 +462,8 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnNuevo;
     private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<String> cbxBuscar;
-    private javax.swing.JComboBox<String> cbxCargo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -572,7 +472,6 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -588,7 +487,6 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtBuscar;
     private javax.swing.JTextField txtCedula;
     private javax.swing.JTextField txtCodigo;
-    private javax.swing.JTextField txtContrasenia;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNombre;
@@ -601,11 +499,10 @@ public class VentanaEmpleado extends javax.swing.JInternalFrame {
         txtApellido.setText("");
         txtTelefono.setText("");
         txtEmail.setText("");
-        txtContrasenia.setText("");
         txtDireccion.setText("");
         Genero.clearSelection();
         Estado.clearSelection();
-        cbxCargo.setSelectedIndex(0); 
+       
     }
 
 

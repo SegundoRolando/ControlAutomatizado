@@ -140,9 +140,10 @@ public class VentanaProveedor extends javax.swing.JInternalFrame {
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
                                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(jLabel10)
-                                                .addGap(0, 0, Short.MAX_VALUE))
-                                            .addComponent(jLabel11))
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel10)
+                                                    .addComponent(jLabel11))
+                                                .addGap(0, 0, Short.MAX_VALUE)))
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                                 .addGap(4, 4, 4)
@@ -294,7 +295,7 @@ public class VentanaProveedor extends javax.swing.JInternalFrame {
 
             },
             new String [] {
-                "Codigo", "Nombre", "Apellido", "Cedula", "Direccion", "Telefono", "Correo Electronico", "Género", "Empresa"
+                "Codigo", "Nombre", "Apellido", "Cedula", "Direccion", "Correo Electronico", "Telefono", "Género", "Empresa"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -428,7 +429,7 @@ public class VentanaProveedor extends javax.swing.JInternalFrame {
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
         // TODO add your handling code here:
          Proveedor cliente=new Proveedor();
-      // cliente.setCodigo(codigo);
+       cliente.setCodigo(codigo);
        cliente.setNombre(txtNombre.getText()); 
        cliente.setApellido(txtApellido.getText());
        cliente.setCedula(txtRUC.getText());
@@ -478,8 +479,8 @@ public class VentanaProveedor extends javax.swing.JInternalFrame {
         txtApellido.setText(String.valueOf(tbllistado.getValueAt(seleccion, 2)));
         txtRUC.setText(String.valueOf(tbllistado.getValueAt(seleccion, 3)));
         txtDireccion.setText(String.valueOf(tbllistado.getValueAt(seleccion, 4)));
-        txtTelefono.setText(String.valueOf(tbllistado.getValueAt(seleccion,5)));
-        txtEmail.setText(String.valueOf(tbllistado.getValueAt(seleccion, 6)));
+        txtTelefono.setText(String.valueOf(tbllistado.getValueAt(seleccion,6)));
+        txtEmail.setText(String.valueOf(tbllistado.getValueAt(seleccion, 5)));
         
         if (tbllistado.getValueAt(seleccion, 7)=="Masculino"){
             rbtnMasculino.setSelected(false);
