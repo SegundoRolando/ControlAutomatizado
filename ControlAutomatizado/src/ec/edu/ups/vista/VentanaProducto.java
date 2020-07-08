@@ -841,6 +841,9 @@ public class VentanaProducto extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
          Producto p=new Producto();
         utilidad(p); 
+        
+        
+        
     }//GEN-LAST:event_txtStockKeyReleased
  
 
@@ -1040,7 +1043,7 @@ public class VentanaProducto extends javax.swing.JInternalFrame {
         n2=Double.parseDouble(txtPreciodeventa.getText());
         n3=Integer.parseInt(txtStock.getText());
         
-      
+       
         if(n1==n2){
             txtUtilidad.setText(String.valueOf("0.0"));
         }else{
